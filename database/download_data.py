@@ -93,8 +93,8 @@ def extract_parallel_data(file_name):
 
 if __name__ == '__main__':
 
-    lang=['ca', 'en', 'es', 'gl', 'eu']
-
+    #lang=['ca', 'en', 'es', 'gl', 'eu']
+    lang = ['ca', 'es', 'gl', 'eu']
     for a in lang:
         url = 'http://opus.nlpl.eu/download/OpenSubtitles2018/'+a+'.tar.gz'
         filename = a+'.tar.gz'
