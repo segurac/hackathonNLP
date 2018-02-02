@@ -8,11 +8,12 @@ from gzip import GzipFile
 
 
 def untar(fname):
+    print("Extracting", fname, "this may take a while....")
     if (fname.endswith("tar.gz")):
         tar = tarfile.open(fname)
         tar.extractall()
         tar.close()
-        print("Extracted in Current Directory")
+        print(fname, "Extracted in Current Directory")
     else:
         print("Not a tar.gz file: '%s '" % fname)
 
@@ -70,8 +71,8 @@ def extract_parallel_data(file_name):
                 orig_doc = linkGrp['@fromDoc']
                 dest_doc = linkGrp['@toDoc']
                 print(orig_doc, dest_doc)
-                orig_subs = parse_subtitles_xml('all/OpenSubtitles2018/xml/' + orig_doc)
-                dest_subs = parse_subtitles_xml('all/OpenSubtitles2018/xml/' + dest_doc)
+                orig_subs = parse_subtitles_xml('OpenSubtitles2018/xml/' + orig_doc)
+                dest_subs = parse_subtitles_xml('OpenSubtitles2018/xml/' + dest_doc)
                 for link in linkGrp['link']:
                     #print(link['@xtargets'])
                     origs, dests = link['@xtargets'].strip().split(';')
@@ -101,7 +102,10 @@ if __name__ == '__main__':
         urllib.request.urlretrieve(url, filename, reporthook)
 
     #every language appears 4 times
-    cross_lang=[ "ca-en", "ca-es",  "ca-eu",  "ca-gl",  "en-es",  "en-eu",  "en-gl",  "es-eu",  "es-gl", "eu-gl"]
+    #with english
+    #cross_lang=[ "ca-en", "ca-es",  "ca-eu",  "ca-gl",  "en-es",  "en-eu",  "en-gl",  "es-eu",  "es-gl", "eu-gl"]
+    #without english
+    cross_lang=[ "ca-es",  "ca-eu",  "ca-gl",  "es-eu",  "es-gl", "eu-gl"]
     for a in cross_lang:
         url = 'http://opus.nlpl.eu/download/OpenSubtitles2018/' + a+'.xml.gz'
         filename = a+'.xml.gz'
