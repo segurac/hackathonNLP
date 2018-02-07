@@ -99,7 +99,7 @@ if __name__ == '__main__':
         url = 'http://opus.nlpl.eu/download/OpenSubtitles2018/'+a+'.tar.gz'
         filename = a+'.tar.gz'
         print("Download", url)
-        urllib.request.urlretrieve(url, filename, reporthook)
+        #urllib.request.urlretrieve(url, filename, reporthook)
 
     #every language appears 4 times
     #with english
@@ -110,7 +110,7 @@ if __name__ == '__main__':
         url = 'http://opus.nlpl.eu/download/OpenSubtitles2018/' + a+'.xml.gz'
         filename = a+'.xml.gz'
         print("Download", url)
-        urllib.request.urlretrieve(url, filename, reporthook)
+        #urllib.request.urlretrieve(url, filename, reporthook)
 
 
     for a in lang:
